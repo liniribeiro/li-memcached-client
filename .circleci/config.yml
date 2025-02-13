@@ -1,0 +1,29 @@
+# Couldn't automatically generate a config from your source code.
+# This is a generic template to serve as a base for your custom config
+# See: https://circleci.com/docs/configuration-reference
+version: 2.1
+
+orbs:
+  li-packages: potato/packages@0.0.1
+jobs:
+  build-and-publish:
+    docker:
+      - image: cimg/python:3.11
+    resource_class: small
+    steps:
+      - checkout
+      - li-packages/poetry-build:
+          pipy_token: ${PYPI_TOKEN}
+      - li-packages/poetry-publish:
+          package_pipy_uri: "https://pypi.org/project/li-memcached-client/"
+
+workflows:
+  package:
+    jobs:
+      - build-and-publish:
+          context:
+            - pypi
+          filters:
+            branches:
+              only: main
+
