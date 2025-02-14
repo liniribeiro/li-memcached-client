@@ -2,7 +2,7 @@
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/liniribeiro/li-memcached-client/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/liniribeiro/li-memcached-client/tree/main)
 
-li-memcached-client is a Python library   
+li-memcached-client is a Python library for connecting into memcached, list, add, get and delete keys.
 
 ## Installation
 To install the li-memcached-client package, use the following command:
