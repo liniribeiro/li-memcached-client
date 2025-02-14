@@ -11,9 +11,16 @@ To install the li-memcached-client package, use the following command:
 pip3 install li-memcached-client
 ```
 
-
 ## Usage 
-...
+```
+from li_memcached_client import LiMemcachedClient
+client = LiMemcachedClient()
+```
+By default, it connects to localhost on port 11211. If you need to specify a host and/or port:
+
+```
+client = LiMemcachedClient(host='1.2.3.4', port='11211')
+```
 
 ## Local Development
 For local development, follow these steps:
