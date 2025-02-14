@@ -1,6 +1,6 @@
 # li-memcached-client
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/liniribeiro/li-memcached-stats/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/liniribeiro/li-aws-helper/tree/main)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/liniribeiro/li-memcached-client/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/liniribeiro/li-memcached-client/tree/main)
 
 li-memcached-client is a Python library   
 
