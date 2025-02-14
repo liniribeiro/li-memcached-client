@@ -5,7 +5,7 @@ version = "0.2.0"
 description = "Package that helps to get memcached iteractions"
 authors = [{name = "Alini Ribeiro", email = "aliniribeiroo@gmail.com"}]
 readme = "README.md"
-keywords = ["li", "memcache", "stats"]
+keywords = ["li", "memcached", "stats"]
 
 [tool.poetry.dependencies]
 python = ">=3.11"

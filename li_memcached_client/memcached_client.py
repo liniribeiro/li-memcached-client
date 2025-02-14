@@ -1,7 +1,7 @@
 import re
 import asyncio
 
-class LiMemcacheClient:
+class LiMemcachedClient:
     """
     A simple memcache client that can be used to interact with a memcache server.
     """
@@ -47,10 +47,14 @@ class LiMemcacheClient:
         response = await self.command(f'set {key} 0 {exptime} {len(value)}\r\n{value}')
         return response.startswith('STORED')
 
+    async def delete_key(self, key):
+        response = await self.command(f'delete {key}')
+        return response.startswith('DELETED')
+
 async def main():
     host = '127.0.0.1'
     port = 11211
-    m = LiMemcacheClient(host, port)
+    m = LiMemcachedClient(host, port)
     keys = await m.keys()
     print(keys)
 

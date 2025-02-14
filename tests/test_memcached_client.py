@@ -89,5 +89,22 @@ class TestLiMemcacheClient(unittest.IsolatedAsyncioTestCase):
         mock_command.assert_called_with('set new_key 0 0 9\r\nnew_value')
 
 
+    @patch('li_memcache_ui.memcache_client.LiMemcacheClient.command', new_callable=AsyncMock)
+    async def test_delete_key(self, mock_command):
+        mock_command.return_value = 'DELETED\r\n'
+
+        result = await self.memcached_stats.delete_key('key_to_delete')
+        self.assertTrue(result)
+        mock_command.assert_called_with('delete key_to_delete')
+
+    @patch('li_memcache_ui.memcache_client.LiMemcacheClient.command', new_callable=AsyncMock)
+    async def test_delete_key_fail(self, mock_command):
+        mock_command.return_value = 'NOT_FOUND\r\n'
+
+        result = await self.memcached_stats.delete_key('nonexistent_key')
+        self.assertFalse(result)
+        mock_command.assert_called_with('delete nonexistent_key')
+
+
 if __name__ == '__main__':
     unittest.main()
